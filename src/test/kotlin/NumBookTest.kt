@@ -56,7 +56,7 @@ class NumBookTest {
         assertTrue(book.delNum("Иосиф Виссарионович", "+79222222222"))
     }
 
-    @Test // Делай
+    @Test
     fun numbers() {
         val book = NumBook()
         assertTrue(book.addName("Ильич Ленин"))

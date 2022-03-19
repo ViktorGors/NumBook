@@ -10,9 +10,9 @@ class NumBook {
         if (!name.matches(Regex("[А-ЯЁ][а-яё]+\\s[А-ЯЁ][а-яё]+"))) throw IllegalArgumentException("Incorrect name! Please check the data entry.")
     }
 
-    // Добавить человека.
-    // true - человек добавлен.
-    // false - если человек с таким именем уже был.
+    // Добавить имя.
+    // true - имя добавлено.
+    // false - такое имя уже сеть.
 
     fun addName(name: String): Boolean {
         СorrectIncorrectName(name) // проверочка
@@ -26,7 +26,7 @@ class NumBook {
 
     // Добавить номер.
     // true - номер был добавлен.
-    // false - человек с таким именем отсутствовал / у него уже был такой номер / такой номер телефона уже был зарегистрирован.
+    // false - такой номер уже существует || человек с таким именем отсутствовал || у него уже был такой номер.
 
     fun addNum(name: String, num: String): Boolean {
 
@@ -70,7 +70,7 @@ class NumBook {
         return true
     }
 
-    // Вернуть все номера телефона заданного человека.
+    // Вернуть все номера телефона заданного по имени человека.
     // В ином случае, вернуть пустой список
 
     fun numbers(name: String): Set<String> {
@@ -89,9 +89,8 @@ class NumBook {
         return null
     }
 
-
-    // Две книги равны, если в них находится одинаковый набор людей,
-    // одинаковый набор телефонов. А, порядок в книге не должен иметь значения.
+    // Две книги равны, если в них находится одинаковый набор имен,
+    // одинаковый набор телефонов. Порядок в книге не иметь значения.
 
     override fun equals(other: Any?): Boolean {
         if (other is NumBook) {
@@ -102,7 +101,6 @@ class NumBook {
         }
         return true
     }
-
 
     override fun hashCode(): Int = NumBook.hashCode()
 
