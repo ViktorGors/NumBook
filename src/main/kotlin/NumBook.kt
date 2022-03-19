@@ -3,10 +3,10 @@ class NumBook {
 
     var NumBook = HashMap<String, MutableSet<String>>()
 
-    fun СorrectIncorrectNum(num: String) {
+    private fun СorrectIncorrectNum(num: String) {
         if (!num.matches(Regex("[0-9+*\\-#]+"))) throw IllegalArgumentException("Incorrect number! Please check the data entry.")
     }
-    fun СorrectIncorrectName(name: String) {
+    private fun СorrectIncorrectName(name: String) {
         if (!name.matches(Regex("[А-ЯЁ][а-яё]+\\s[А-ЯЁ][а-яё]+"))) throw IllegalArgumentException("Incorrect name! Please check the data entry.")
     }
 
@@ -34,12 +34,12 @@ class NumBook {
         СorrectIncorrectName(name) // проверочка
 
         if (!NumBook.containsKey(name)) return false
-        val Number = NumBook[name]
-        if (Number!!.contains(num)) return false //проверка на наличие номера в телефонной книге
+        val number = NumBook[name]
+        if (number!!.contains(num)) return false //проверка на наличие номера в телефонной книге
         for (personNum in NumBook.values) { //проверка на наличие этого номера у других людей
             if (personNum.contains(num)) return false
         }
-        Number.add(num)
+        number.add(num)
         return true
     }
 
